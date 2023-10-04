@@ -10,7 +10,7 @@ node {
       echo "nothing to compile for hello.sh..."
     }
     stage('test') {
-      sh "./test_hello.sh"
+      sudo sh "./test_hello.sh"
     }
     stage('package') {
       sh "tar -cvzf hello.tar.gz hello.sh"

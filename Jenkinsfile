@@ -4,6 +4,7 @@ node {
       checkout scm
     }
     stage('prepare') {
+      sh "echo $DEB_REPO_HOST $DEB_REPO_TYPE"
       sh "git clean -fdx"
     }
     stage('compile') {

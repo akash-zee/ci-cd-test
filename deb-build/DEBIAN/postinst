@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Execute postinst"
+
+chown root:root /etc/test-ci-cd/conf
+chmod 644 /etc/test-ci-cd/conf

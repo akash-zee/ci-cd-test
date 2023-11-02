@@ -1,0 +1,7 @@
+Package: test-ci-cd
+Priority: optional
+Section: custom
+Maintainer: Zee5
+Architecture: all
+Version: 0.0.1
+Description: Test project for CI/CD

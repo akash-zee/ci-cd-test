@@ -23,8 +23,7 @@ node {
     }
 
     stage('package') {
-      //helper.updateVersion(debRepo.HOST, debRepo.TYPE, 'test-ci-cd')
-      helper.updateVersion('test-ci-cd')
+      helper.updatePackageVersion('test-ci-cd')
       // sh 'tar -cvzf hello.tar.gz hello.sh'
     }
 

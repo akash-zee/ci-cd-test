@@ -6,7 +6,9 @@ node {
     stage('prepare') {
       sh "echo $DEB_REPO_HOST $DEB_REPO_TYPE"
       test.printMsg('Hello, shared lib message is working!!')
+      test.printMsg('Test msg')
       sh 'git clean -fdx'
+
     }
     stage('compile') {
       echo 'nothing to compile for hello.sh...'

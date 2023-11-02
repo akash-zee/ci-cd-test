@@ -11,7 +11,9 @@ node {
       sh "echo \"Checking shared lib variables: $debRepo.HOST $debRepo.TYPE\""
       sh "echo \"Checking shared lib variables: debRepo.HOST debRepo.TYPE\""
       test.printMsg(debRepo.HOST)
-      test.printMsg(debRepo.TYPE)
+      test.printMsg($debRepo.HOST)
+      test.printMsg("${debRepo.HOST}")
+      test.printMsg(${ debRepo.HOST })
       sh 'git clean -fdx'
     }
     stage('compile') {

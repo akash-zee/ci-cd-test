@@ -13,7 +13,7 @@ node {
       test.printMsg(debRepo.HOST)
       //test.printMsg($debRepo.HOST)
       test.printMsg("${debRepo.HOST}")
-      test.printMsg(${ debRepo.HOST })
+      //test.printMsg(${ debRepo.HOST })
       sh 'git clean -fdx'
     }
     stage('compile') {

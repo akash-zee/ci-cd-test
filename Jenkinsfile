@@ -6,7 +6,7 @@ node {
     stage('prepare') {
       sh "echo $DEB_REPO_HOST $DEB_REPO_TYPE"
       test.printMsg('Hello, shared lib message is working!!')
-      test.printMsg('Test msg 3')
+      test.printMsg('Test msg 4')
       sh 'git clean -fdx'
 
     }

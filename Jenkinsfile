@@ -1,3 +1,5 @@
+def debPackageName = ''
+
 node {
   try {
     stage('checkout') {
@@ -27,11 +29,18 @@ node {
       sh "echo 'package Name: ${packageName}'"
 
       currVer = debRepo.getLatestVersionForPackage(packageName)
-      debPkg.incrementVersion(currVer)
+      newVer = debPkg.getNewVersion(currVer)
+      sh "echo 'current version: ${currVer}, new version: ${newVer}'"
+
+      debPkg.updateVersion(newVer)
+
+      debPackageName = "${packageName}_${newVer}.deb"
+      debPkg.build(debPackageName)
       // sh 'tar -cvzf hello.tar.gz hello.sh'
     }
 
     stage('publish') {
+      debRepo.publishPkg(debPackageName)
       echo 'uploading package...!'
     }
   } finally {

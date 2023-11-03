@@ -35,6 +35,7 @@ node {
       debPkg.updateVersion(newVer)
 
       debPackageName = "${packageName}_${newVer}.deb"
+      sh "echo 'debPackageName: ${debPackageName}'"
       debPkg.build(debPackageName)
       // sh 'tar -cvzf hello.tar.gz hello.sh'
     }

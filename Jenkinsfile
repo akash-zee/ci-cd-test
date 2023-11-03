@@ -23,7 +23,11 @@ node {
     }
 
     stage('package') {
-      helper.updatePackageVersion('test-ci-cd')
+      packageName = debPkg.getPackageName()
+      sh "echo 'package Name: ${packageName}'"
+
+      currVer = debPkg.getCurrentVersionFromRepo(packageName)
+      debPkg.incrementVersion(currVer)
       // sh 'tar -cvzf hello.tar.gz hello.sh'
     }
 

@@ -37,12 +37,16 @@ node {
       debPackageName = "${packageName}_${newVer}.deb"
       sh "echo 'debPackageName: ${debPackageName}'"
       debPkg.build(debPackageName)
-      // sh 'tar -cvzf hello.tar.gz hello.sh'
+    // sh 'tar -cvzf hello.tar.gz hello.sh'
     }
 
     stage('publish') {
-      debRepo.publishPkg(debPackageName)
-      echo 'uploading package...!'
+      if (codeRepo.isDeployementBranch()) {
+        debRepo.publishPkg(debPackageName)
+        echo 'uploading package...!'
+      } else {
+        echo 'Not a deployment branch. Not publishing.'
+      }
     }
   } finally {
     stage('cleanup') {

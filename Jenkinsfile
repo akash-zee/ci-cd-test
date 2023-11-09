@@ -41,7 +41,7 @@ node {
     }
 
     stage('publish') {
-      if (codeRepo.isDeployementBranch()) {
+      if (codeRepo.isDeploymentBranch()) {
         debRepo.publishPkg(debPackageName)
         echo 'uploading package...!'
       } else {
